@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="615.0" prefWidth="840.0" style="-fx-background-color: #ad1316;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.inventario.MainController">
+   <children>
+      <Pane layoutX="2.0" layoutY="-10.0" prefHeight="673.0" prefWidth="1200.0" style="-fx-background-color: #ad1316;">
+         <children>
+            <Pane layoutX="-16.0" layoutY="6.0" prefHeight="741.0" prefWidth="350.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="63.0" fitWidth="349.0" layoutX="10.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo_frame-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutX="23.0" layoutY="213.0" prefHeight="349.0" prefWidth="303.0">
+                     <children>
+                        <Button fx:id="btnClientes" focusTraversable="false" layoutX="52.0" layoutY="95.0" mnemonicParsing="false" onAction="#switchToCliente" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 100; -fx-background-color: #ad1316;" text="Clientes" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnPedidos" focusTraversable="false" layoutX="52.0" layoutY="164.0" mnemonicParsing="false" onAction="#switchToPedido" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ad1316; -fx-background-radius: 100;" text="Pedidos" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnProveedores" focusTraversable="false" layoutX="52.0" layoutY="233.0" mnemonicParsing="false" onAction="#swicthToProveedor" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 100; -fx-background-color: #ad1316;" text="Proveedores" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnUsuarios" focusTraversable="false" layoutX="52.0" layoutY="299.0" mnemonicParsing="false" onAction="#switchToUsuarios" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ad1316; -fx-background-radius: 100;" text="Usuarios" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <StackPane fx:id="materialesStackPane" layoutX="52.0" layoutY="20.0" prefHeight="63.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnMateriales" focusTraversable="false" mnemonicParsing="false" onAction="#switchToMateriales" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 100; -fx-background-color: #ad1316;" text="Materiales" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="541.0" layoutY="203.0" prefHeight="395.0" prefWidth="516.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="303.0" layoutX="127.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@itswhatwedo.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="110.0" fitWidth="468.0" layoutX="44.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@framing.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnSesion" defaultButton="true" layoutX="182.0" layoutY="230.0" mnemonicParsing="false" onAction="#Sesion" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 120;" text="Registrarse" textFill="#ad1316">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <ImageView fitHeight="88.0" fitWidth="96.0" layoutX="1098.0" layoutY="607.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@qrlinktree.png" />
+               </image>
+            </ImageView>
+            <Button id="helpButton" layoutX="1142.0" layoutY="23.0" mnemonicParsing="false" onAction="#Config" style="-fx-background-color: #ad1316;">
+               <graphic>
+                  <ImageView id="helpIMG" fx:id="engranaje" fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@ayuda_logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="configuracion" layoutX="983.0" layoutY="68.0" prefHeight="304.0" prefWidth="226.0" style="-fx-background-color: rgba(180, 230, 190, 0.5); -fx-opacity: 99%;" visible="false" AnchorPane.topAnchor="58.0">
+         <children>
+            <Button layoutX="11.0" layoutY="208.0" mnemonicParsing="false" onAction="#manualUsuario" prefHeight="75.0" prefWidth="204.0" style="-fx-background-color: #8A1011;" text="Manual de Usuario" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="112.0" mnemonicParsing="false" onAction="#abrirGestorContra" prefHeight="75.0" prefWidth="204.0" style="-fx-background-color: #8A1011;" text="Gestor de Contraseñas" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#abrirPerfilAdmin" prefHeight="75.0" prefWidth="204.0" style="-fx-background-color: #8A1011;" text="Perfil de Administrador" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

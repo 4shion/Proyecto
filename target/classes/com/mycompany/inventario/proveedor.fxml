@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.inventario.ProveedorController">
+   <children>
+      <Pane layoutX="450.0" layoutY="101.0" prefHeight="505.0" prefWidth="674.0" style="-fx-background-color: white;">
+         <children>
+            <TextField fx:id="txtBusqueda" focusTraversable="false" layoutX="107.0" layoutY="2.0" onAction="#Busqueda" prefHeight="25.0" prefWidth="388.0" promptText="🔍 Busqueda" />
+            <TableView fx:id="table" focusTraversable="false" layoutX="14.0" layoutY="36.0" onMouseClicked="#click" prefHeight="430.0" prefWidth="575.0">
+               <columns>
+                  <TableColumn fx:id="ColumID" prefWidth="60.0" text="ID" />
+                  <TableColumn fx:id="ColumNombre" prefWidth="161.60003662109375" text="Nombre" />
+                  <TableColumn fx:id="ColumCorreo" prefWidth="227.199951171875" text="Correo" />
+                  <TableColumn fx:id="ColumTelefono" prefWidth="124.60003662109375" text="Teléfono" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane layoutX="126.0" layoutY="169.0" prefHeight="323.0" prefWidth="204.0" style="-fx-background-color: white;">
+         <children>
+            <TextField fx:id="txtNombre" layoutX="19.0" layoutY="79.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="txtCorreo" layoutX="20.0" layoutY="186.0" prefWidth="150.0" />
+            <TextField fx:id="txtId" disable="true" editable="false" layoutX="19.0" layoutY="48.0" visible="false" />
+            <Text layoutX="19.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="19.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo electrónico:">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="19.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de teléfono:">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtTelefono" layoutX="19.0" layoutY="284.0" prefWidth="150.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="126.0" layoutY="607.0" prefHeight="42.0" prefWidth="933.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="50.60000000000002" AnchorPane.rightAnchor="162.80000000000018">
+         <children>
+            <Button fx:id="btnNuevo" focusTraversable="false" layoutX="20.0" layoutY="8.0" mnemonicParsing="false" onAction="#Nuevo" style="-fx-background-color: #ad1316;" text="Nuevo" textFill="WHITE" />
+            <Button fx:id="btnModificar" layoutX="85.0" layoutY="8.0" mnemonicParsing="false" onAction="#Modificar" style="-fx-background-color: #ad1316;" text="Modificar" textFill="WHITE" />
+            <Button fx:id="btnEliminar" layoutX="165.0" layoutY="8.0" mnemonicParsing="false" onAction="#Eliminar" style="-fx-background-color: #ad1316;" text="Eliminar" textFill="WHITE" />
+            <Button fx:id="btnGuardar" defaultButton="true" layoutX="235.0" layoutY="8.0" mnemonicParsing="false" onAction="#Guardar" style="-fx-background-color: #ad1316;" text="Guardar" textFill="WHITE" />
+            <Button fx:id="btnCancelar" layoutX="848.0" layoutY="8.0" mnemonicParsing="false" onAction="#Cancelar" style="-fx-background-color: #ad1316;" text="Cancelar" textFill="WHITE" />
+            <Button fx:id="btnLimpiar" focusTraversable="false" layoutX="305.0" layoutY="8.0" mnemonicParsing="false" onAction="#Limpiar" style="-fx-background-color: #ad1316;" text="Limpiar" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Pane fx:id="configuracion" layoutX="991.0" layoutY="68.0" prefHeight="304.0" prefWidth="226.0" style="-fx-background-color: rgba(89, 89, 89, 0.5); -fx-opacity: 99%;" visible="false" AnchorPane.topAnchor="58.0">
+         <children>
+            <Button layoutX="11.0" layoutY="208.0" mnemonicParsing="false" onAction="#manualUsuario" prefHeight="75.0" prefWidth="204.0" style="-fx-background-color: #8A1011;" text="Manual de Usuario" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="112.0" mnemonicParsing="false" onAction="#abrirGestorContra" prefHeight="75.0" prefWidth="204.0" style="-fx-background-color: #8A1011;" text="Gestor de Contraseñas" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#abrirPerfilAdmin" prefHeight="75.0" prefWidth="204.0" style="-fx-background-color: #8A1011;" text="Perfil de Administrador" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <HBox id="menuBar" layoutX="10.0" layoutY="30.0" prefHeight="58.0" prefWidth="1220.0" style="-fx-background-color: #ad1316;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button id="mainLogoButton" mnemonicParsing="false" onAction="#switchToMain" prefHeight="26.0" prefWidth="133.0" style="-fx-background-color: #ad1316;">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo_frame-removebg-blanco.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="8.0" />
+               </HBox.margin>
+            </Button>
+            <StackPane fx:id="materialesStackPane" prefHeight="58.0" prefWidth="105.0">
+               <children>
+                  <Button id="menuMateriales" mnemonicParsing="false" onAction="#switchToMateriales" prefHeight="53.0" style="-fx-background-color: #ad1316;" text="Materiales" textFill="WHITE">
+                     <effect>
+                        <Blend />
+                     </effect>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets left="60.0" right="-20.0" />
+               </HBox.margin>
+            </StackPane>
+            <ButtonBar prefHeight="58.0" prefWidth="601.0">
+               <opaqueInsets>
+                  <Insets left="100.0" />
+               </opaqueInsets>
+               <buttons>
+                  <Button id="menuCliente" mnemonicParsing="false" onAction="#switchToCliente" prefHeight="53.0" style="-fx-background-color: #ad1316;" text="Cliente" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="menuPedido" mnemonicParsing="false" onAction="#switchToPedido" prefHeight="53.0" style="-fx-background-color: #ad1316;" text="Pedido" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="menuProveedor" mnemonicParsing="false" onAction="#swicthToProveedor" prefHeight="67.0" style="-fx-background-color: white;" text="Proveedor" textFill="#ad1316">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="menuUsuarios" minWidth="74.0" mnemonicParsing="false" onAction="#switchToUsuarios" prefHeight="53.0" prefWidth="106.0" style="-fx-background-color: #ad1316; -fx-border-radius: 0;" text="Usuarios" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="menuHistorial" mnemonicParsing="false" onAction="#switchToHistorial" prefHeight="53.0" style="-fx-background-color: #ad1316;" text="Historial" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </buttons>
+            </ButtonBar>
+            <Button id="helpButton" mnemonicParsing="false" onAction="#Config" style="-fx-background-color: #ad1316;">
+               <graphic>
+                  <ImageView id="helpIMG" fx:id="engranaje" fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@ayuda_logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="200.0" top="13.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </children>
+</AnchorPane>

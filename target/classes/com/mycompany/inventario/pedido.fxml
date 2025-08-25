@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxWidth="1200.0" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.inventario.PedidoController">
+   <children>
+      <Pane layoutX="203.0" layoutY="121.0" prefHeight="478.0" prefWidth="900.0">
+         <children>
+            <TextArea fx:id="TxtServicio" layoutX="36.0" layoutY="84.0" prefHeight="158.0" prefWidth="200.0" />
+            <Text layoutX="36.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servicio realizado:">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtNomCliente" layoutX="36.0" layoutY="284.0" prefHeight="25.0" prefWidth="200.0" />
+            <Text layoutX="36.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del cliente:">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font></Text>
+            <TableView fx:id="table" focusTraversable="false" layoutX="282.0" layoutY="65.0" onMouseClicked="#Click" prefHeight="365.0" prefWidth="504.0">
+              <columns>
+                <TableColumn fx:id="ColumMaterial" prefWidth="258.4000244140625" text="Material" />
+                <TableColumn fx:id="ColumCantidad" prefWidth="127.99993896484375" text="Cantidad" />
+                  <TableColumn fx:id="ColumStock" prefWidth="116.0001220703125" text="Stock Restante" />
+              </columns>
+            </TableView>
+            <ComboBox fx:id="CbmMateriales" layoutX="283.0" layoutY="14.0" prefHeight="25.0" prefWidth="344.0" promptText="Materiales" />
+            <Text fx:id="txtCosto" fill="#ad1316" layoutX="36.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal:">
+               <font>
+                  <Font name="Corbel" size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="BtnFactura" layoutX="681.0" layoutY="443.0" mnemonicParsing="false" onAction="#Factura" style="-fx-background-radius: 100; -fx-background-color: #ad1316;" text="Generar Factura" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <TextField fx:id="TxtCant" focusTraversable="false" layoutX="638.0" layoutY="14.0" prefHeight="25.0" prefWidth="86.0" />
+            <Button fx:id="BtnAgregar" layoutX="735.0" layoutY="14.0" mnemonicParsing="false" onAction="#Agregar" prefHeight="25.0" prefWidth="42.0" style="-fx-background-color: grey;" text="+" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Button>
+            <Pane layoutX="14.0" layoutY="433.0" prefHeight="46.0" prefWidth="223.0" style="-fx-background-color: white;">
+               <children>
+                  <Button fx:id="btnEliminar" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" onAction="#Eliminar" style="-fx-background-color: #ad1316;" text="Eliminar" textFill="WHITE" />
+                  <Button fx:id="btnGuardar" layoutX="83.0" layoutY="10.0" mnemonicParsing="false" onAction="#Guardar" style="-fx-background-color: #ad1316;" text="Guardar" textFill="WHITE" />
+                  <Button fx:id="btnLimpiar" layoutX="154.0" layoutY="11.0" mnemonicParsing="false" onAction="#Limpiar" style="-fx-background-color: #ad1316;" text="Limpiar" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Button fx:id="btnNoName" layoutX="136.0" layoutY="309.0" mnemonicParsing="false" onAction="#NoName" style="-fx-background-color: white;" text="Cliente sin nombre" textFill="#ad1316" underline="true">
+               <font>
+                  <Font name="Corbel" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="BtnPedidos" layoutX="564.0" layoutY="443.0" mnemonicParsing="false" onAction="#GenerarPedido" style="-fx-background-radius: 100; -fx-background-color: #ad1316;" text="Obtener Pedidos" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <TextField fx:id="idPedido" layoutX="128.0" layoutY="148.0" visible="false" />
+      <Pane fx:id="configuracion" layoutX="981.0" layoutY="58.0" prefHeight="304.0" prefWidth="226.0" style="-fx-background-color: rgba(89, 89, 89, 0.5); -fx-opacity: 99%;" visible="false" AnchorPane.topAnchor="58.0">
+         <children>
+            <Button layoutX="11.0" layoutY="208.0" mnemonicParsing="false" onAction="#manualUsuario" prefHeight="75.0" prefWidth="204.0" style="-fx-background-color: #8A1011;" text="Manual de Usuario" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="112.0" mnemonicParsing="false" onAction="#abrirGestorContra" prefHeight="75.0" prefWidth="204.0" style="-fx-background-color: #8A1011;" text="Gestor de Contraseñas" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#abrirPerfilAdmin" prefHeight="75.0" prefWidth="204.0" style="-fx-background-color: #8A1011;" text="Perfil de Administrador" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <TextField fx:id="correoCliente" layoutX="14.0" layoutY="109.0" visible="false" />
+      <TextField fx:id="telfCliente" layoutX="15.0" layoutY="148.0" visible="false" />
+      <TextField fx:id="numFactura" layoutX="15.0" layoutY="198.0" visible="false" />
+      <HBox id="menuBar" layoutX="10.0" layoutY="30.0" prefHeight="58.0" prefWidth="1220.0" style="-fx-background-color: #ad1316;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button id="mainLogoButton" mnemonicParsing="false" onAction="#switchToMain" prefHeight="26.0" prefWidth="133.0" style="-fx-background-color: #ad1316;">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo_frame-removebg-blanco.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="8.0" />
+               </HBox.margin>
+            </Button>
+            <StackPane fx:id="materialesStackPane" prefHeight="58.0" prefWidth="105.0">
+               <children>
+                  <Button id="menuMateriales" mnemonicParsing="false" onAction="#switchToMateriales" prefHeight="53.0" style="-fx-background-color: #ad1316;" text="Materiales" textFill="WHITE">
+                     <effect>
+                        <Blend />
+                     </effect>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets left="60.0" right="-20.0" />
+               </HBox.margin>
+            </StackPane>
+            <ButtonBar prefHeight="58.0" prefWidth="601.0">
+               <opaqueInsets>
+                  <Insets left="100.0" />
+               </opaqueInsets>
+               <buttons>
+                  <Button id="menuCliente" mnemonicParsing="false" onAction="#switchToCliente" prefHeight="53.0" style="-fx-background-color: #ad1316;" text="Cliente" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="menuPedido" mnemonicParsing="false" onAction="#switchToPedido" prefHeight="64.0" style="-fx-background-color: white;" text="Pedido" textFill="#ad1316">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="menuProveedor" mnemonicParsing="false" onAction="#swicthToProveedor" prefHeight="54.0" style="-fx-background-color: #ad1316;" text="Proveedor" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="menuUsuarios" minWidth="74.0" mnemonicParsing="false" onAction="#switchToUsuarios" prefHeight="53.0" prefWidth="106.0" style="-fx-background-color: #ad1316; -fx-border-radius: 0;" text="Usuarios" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="menuHistorial" mnemonicParsing="false" onAction="#switchToHistorial" prefHeight="53.0" style="-fx-background-color: #ad1316;" text="Historial" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </buttons>
+            </ButtonBar>
+            <Button id="helpButton" mnemonicParsing="false" onAction="#Config" style="-fx-background-color: #ad1316;">
+               <graphic>
+                  <ImageView id="helpIMG" fx:id="engranaje" fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@ayuda_logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="200.0" top="13.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </children>
+</AnchorPane>

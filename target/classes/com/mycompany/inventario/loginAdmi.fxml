@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.inventario.LoginAdmiController">
+   <children>
+      <HBox id="menuBar" layoutX="60.0" layoutY="57.0" prefHeight="58.0" prefWidth="100.0" style="-fx-background-color: #ad1316;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button id="mainLogoButton" mnemonicParsing="false" onAction="#switchToMain" prefHeight="26.0" prefWidth="133.0" style="-fx-background-color: #ad1316;">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo_frame-removebg-blanco.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="8.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <Pane layoutX="194.0" layoutY="127.0" prefHeight="358.0" prefWidth="466.0">
+         <children>
+            <TextField fx:id="codAdmin" layoutX="254.0" layoutY="70.0" />
+            <TextField fx:id="nombreAdmin" layoutX="254.0" layoutY="114.0" />
+            <TextField fx:id="idAdmin" layoutX="91.0" layoutY="157.0" visible="false" />
+            <TextField fx:id="correoAdmin" layoutX="254.0" layoutY="157.0" />
+            <Text layoutX="97.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo de Admin:">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="97.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Completo:">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="97.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo electrónico:">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnAceptar" defaultButton="true" layoutX="155.0" layoutY="301.0" mnemonicParsing="false" onAction="#Aceptar" style="-fx-background-color: #ad1316;" text="Aceptar" textFill="WHITE">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancelar" layoutX="256.0" layoutY="301.0" mnemonicParsing="false" onAction="#Cancelar" style="-fx-background-color: #ad1316;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Button>
+            <Text fill="#ad1316" layoutX="71.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese una contraseña:">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="pswd" layoutX="254.0" layoutY="204.0" prefHeight="25.0" prefWidth="163.0" />
+            <PasswordField fx:id="pswdVerificacion" layoutX="254.0" layoutY="244.0" prefHeight="25.0" prefWidth="163.0" />
+            <Text fill="#ad1316" layoutX="50.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Favor repetir la contraseña:">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#ad1316" layoutX="76.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrese como Administrador del Sistema">
+               <font>
+                  <Font name="Corbel Bold" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

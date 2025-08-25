@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Detalle" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f0754547-0c26-4c92-ac77-b0d2ac1ea0b4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Inventario"/>
+	<parameter name="ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer (1)]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT frameexperts.detallepedido.cantidad,
+	frameexperts.detallepedido.`Pedido_idPedido`,
+	frameexperts.materiaprima.nombre,
+	frameexperts.materiaprima.precio,
+	CONCAT(frameexperts.detallepedido.cantidad,frameexperts.materiaprima.UnidadMedida) AS cantidadConUnidad,
+	frameexperts.materiaprima.`UnidadMedida`
+FROM frameexperts.detallepedido
+	INNER JOIN frameexperts.materiaprima ON 
+	 frameexperts.detallepedido.`materiaPrima_idMaterial` = frameexperts.materiaprima.`idMaterial`
+	 WHERE frameexperts.detallepedido.`Pedido_idPedido` = $P{ID}]]>
+	</queryString>
+	<field name="cantidad" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detallepedido"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pedido_idPedido" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Pedido_idPedido"/>
+		<property name="com.jaspersoft.studio.field.label" value="Pedido_idPedido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detallepedido"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="materiaprima"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="precio"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="materiaprima"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidadConUnidad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cantidadConUnidad"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidadConUnidad"/>
+	</field>
+	<field name="UnidadMedida" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="UnidadMedida"/>
+		<property name="com.jaspersoft.studio.field.label" value="UnidadMedida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="materiaprima"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField pattern="#,##0.00 €;(#,##0.00 €) ">
+				<reportElement x="355" y="0" width="134" height="30" uuid="46eccac0-ff4a-43d7-989b-138927958650"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="1" width="144" height="30" uuid="a25626de-ce84-454d-a0a1-ddc13a2a9208"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidadConUnidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="1" width="139" height="30" uuid="c225c880-69a9-405d-86eb-33058dd8565f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="72" y="30" width="417" height="1" uuid="57419b17-b434-46d7-b3e7-ff941c04450e"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

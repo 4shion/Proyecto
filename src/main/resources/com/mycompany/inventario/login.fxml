@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="555.0" prefWidth="847.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.inventario.LoginController">
+   <children>
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="51.0" prefWidth="847.0" />
+      <Rectangle id="menu_bar" arcHeight="5.0" arcWidth="5.0" fill="#ad1316" height="51.0" layoutX="10.0" layoutY="-19.2" stroke="#ad1316" strokeType="INSIDE" strokeWidth="0.0" width="862.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <VBox alignment="CENTER" layoutX="7.0" prefHeight="572.0" prefWidth="855.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView id="btn_exit" fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
+               <image>
+                  <Image url="@equis.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="74.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo%20frame.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="-30.0" />
+               </VBox.margin>
+            </ImageView>
+            <Text fill="#d42626" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de Gestion de Inventario" textAlignment="CENTER">
+               <font>
+                  <Font name="Corbel Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username / Usuario:">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Text>
+            <TextField id="txt_usuario" fx:id="txtUsuario" alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="145.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password / Contraseña:">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <PasswordField id="txt_contra" fx:id="txtContra" maxWidth="-Infinity">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </PasswordField>
+            <Button id="btn_ingresar" fx:id="btnIngresar" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#Ingresar" style="-fx-background-color: #ad1316;" text="Ingresar" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text=" ">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Text>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets top="-10.0" />
+   </padding>
+</AnchorPane>
